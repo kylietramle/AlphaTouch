@@ -19,20 +19,14 @@
         didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // method name, param type, param name
     
-    // get main screen, then its bounds
-    CGRect viewRect = [[UIScreen mainScreen] bounds];
     //allocate memory for UI Window and initialize object with frame size to bounds of main screen
+    CGRect viewRect = [[UIScreen mainScreen] bounds];
     self.window = [[UIWindow alloc] initWithFrame:viewRect];
     
-    // build root view controller
-    UIViewController *colorTouchVC = [[UIViewController alloc] init];
+    // build root view controller; set view properties in view controller
+    self.viewController = [[UIViewController alloc] init];
     
-    // build view the size of whole screen & set its controller
-    UIView *colorView = [[UIView alloc] initWithFrame: viewRect];
-    colorView.backgroundColor = [UIColor yellowColor];
-    colorTouchVC.view = colorView;
-    
-    self.window.rootViewController = colorTouchVC;
+    self.window.rootViewController = self.viewController;
     // receive all keyboards & nontouch events
     [self.window makeKeyAndVisible];
     NSLog(@"Screen is %f tall and %f wide", viewRect.size.height, viewRect.size.width);

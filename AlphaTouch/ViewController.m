@@ -20,6 +20,7 @@
     
     // first button
     self.fiftyPercentButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    NSLog(@"%@", _fiftyPercentButton);
     self.fiftyPercentButton.frame = CGRectMake(100, 100, 100, 44);
     [self.fiftyPercentButton setTitle:@"Make 50%" forState:UIControlStateNormal];
     [self.view addSubview:self.fiftyPercentButton];
@@ -31,7 +32,7 @@
     self.hundredPercentButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.hundredPercentButton .frame = CGRectMake(100, 300, 100, 44);
     [self.hundredPercentButton  setTitle:@"Make 100%" forState:UIControlStateNormal];
-    [self.view addSubview:self.hundredPercentButton ];
+    [self.view addSubview:self.hundredPercentButton];
     [self.hundredPercentButton  addTarget: self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     // label with frame

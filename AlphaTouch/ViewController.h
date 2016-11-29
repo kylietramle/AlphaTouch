@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-@property (weak, nonatomic) UIButton *fiftyPercentButton;
-@property (weak, nonatomic) UIButton *hundredPercentButton;
+@property (strong, nonatomic) UIButton *fiftyPercentButton;
+@property (strong, nonatomic) UIButton *hundredPercentButton;
 
 - (void)buttonPressed:(UIButton *)sender;
 @end

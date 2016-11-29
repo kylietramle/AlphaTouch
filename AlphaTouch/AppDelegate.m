@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,8 +25,7 @@
     self.window = [[UIWindow alloc] initWithFrame:viewRect];
     
     // build root view controller; set view properties in view controller
-    self.viewController = [[UIViewController alloc] init];
-    
+    self.viewController = [[ViewController alloc] init];
     self.window.rootViewController = self.viewController;
     // receive all keyboards & nontouch events
     [self.window makeKeyAndVisible];

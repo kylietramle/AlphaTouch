@@ -17,20 +17,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor yellowColor];
-}
-
-- (void) loadView {
-    // get main screen, then its bounds
-    CGRect viewRect = [[UIScreen mainScreen] bounds];
-    // build view the size of whole screen & set its controller
-    UIView *view = [[UIView alloc] initWithFrame: viewRect];
     
-    self.view = view;
+    // button that says "click me"
+    UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    firstButton.frame = CGRectMake(100, 100, 100, 44);
+    [firstButton setTitle:@"Click Me!" forState:UIControlStateNormal];
+    [self.view addSubview:firstButton];
+    
+    // label with frame
+    UILabel *firstLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 30, 220, 44)];
+    firstLabel.text = @"Hello, welcome to my app!";
+    [self.view addSubview:firstLabel];
+ 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadView {
+    CGRect viewRect = [[UIScreen mainScreen] bounds];
+    UIView *view = [[UIView alloc] initWithFrame:viewRect];
+    self.view = view;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

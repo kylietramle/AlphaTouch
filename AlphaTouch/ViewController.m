@@ -18,14 +18,21 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor yellowColor];
     
-    // button that says "click me"
+    // first button
     UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     firstButton.frame = CGRectMake(100, 100, 100, 44);
-    [firstButton setTitle:@"Click Me!" forState:UIControlStateNormal];
+    [firstButton setTitle:@"Make 50%" forState:UIControlStateNormal];
     [self.view addSubview:firstButton];
     // call method for button being pressed -- addTarget:action:forControlEvents:
     // @selector: used to send in method names as params
     [firstButton addTarget: self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //second button
+    UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    secondButton.frame = CGRectMake(100, 300, 100, 44);
+    [secondButton setTitle:@"Make 100%" forState:UIControlStateNormal];
+    [self.view addSubview:secondButton];
+    [secondButton addTarget: self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     // label with frame
     UILabel *firstLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 30, 220, 44)];
@@ -56,8 +63,11 @@
     NSLog(@"Button pressed, sender: %@", sender);
     self.view.alpha = ((double)arc4random()/0x100000000);
     
-    // remove button view from screen; sender = UIButton that was passed in as argument
-    [sender removeFromSuperview];
+    if ([sender.titleLabel.text isEqualToString:@"Make 50%"]) {
+        self.view.alpha = .5;
+    } else {
+        self.view.alpha = 1;
+    }
 }
 
 @end

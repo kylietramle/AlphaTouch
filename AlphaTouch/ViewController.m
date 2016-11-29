@@ -23,6 +23,9 @@
     firstButton.frame = CGRectMake(100, 100, 100, 44);
     [firstButton setTitle:@"Click Me!" forState:UIControlStateNormal];
     [self.view addSubview:firstButton];
+    // call method for button being pressed -- addTarget:action:forControlEvents:
+    // @selector: used to send in method names as params
+    [firstButton addTarget: self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     // label with frame
     UILabel *firstLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 30, 220, 44)];
@@ -45,6 +48,16 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     NSLog(@"Touched the screen!");
+}
+
+// method that controls button being pressed
+- (void)buttonPressed:(UIButton *)sender
+{
+    NSLog(@"Button pressed, sender: %@", sender);
+    self.view.alpha = ((double)arc4random()/0x100000000);
+    
+    // remove button view from screen; sender = UIButton that was passed in as argument
+    [sender removeFromSuperview];
 }
 
 @end
